@@ -6,11 +6,14 @@ export class AuthService {
   account;
 
   constructor() {
-    this.client.setEndpoint(conf.appwiteUrl).setProject(conf.appwriteProjectId);
+    this.client
+      .setEndpoint(conf.appwriteUrl)
+      .setProject(conf.appwriteProjectId);
     this.account = new Account(this.client);
   }
 
   async createAccount({ email, password, name }) {
+    debugger;
     try {
       const userAccount = await this.account.create(
         ID.unique(),
